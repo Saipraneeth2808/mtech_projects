@@ -1,0 +1,242 @@
+[
+  {
+    "model": "Ensemble",
+    "accuracy": 0.98,
+    "n_samples": 58,
+    "timestamp": "2026-04-15T14:15:48.334570",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "Ensemble",
+    "accuracy": 0.98,
+    "n_samples": 58,
+    "timestamp": "2026-04-15T14:45:37.042427",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "Ensemble",
+    "accuracy": 0.98,
+    "n_samples": 58,
+    "timestamp": "2026-04-15T15:52:15.155414",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "Ensemble",
+    "accuracy": 0.98,
+    "n_samples": 58,
+    "timestamp": "2026-04-20T11:24:42.525930",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "Ensemble",
+    "accuracy": 0.98,
+    "n_samples": 58,
+    "timestamp": "2026-04-20T11:45:47.869354",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "Ensemble",
+    "accuracy": 0.98,
+    "n_samples": 58,
+    "timestamp": "2026-04-20T12:08:14.536315",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-20T12:39:22.898703",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-20T12:46:56.360314",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T10:48:35.022412",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T11:13:25.559377",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T12:46:31.233532",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T14:23:10.649952",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T14:30:19.405567",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T16:30:30.052441",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T16:41:08.373419",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T17:16:06.354751",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-21T17:30:10.934484",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-23T18:00:51.838793",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-24T12:13:09.884248",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-24T12:22:20.539952",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-24T12:27:07.961245",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-24T12:32:10.613402",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-24T12:34:42.025436",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-24T12:40:30.276712",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-24T12:45:19.234685",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-27T17:11:17.367006",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-04-28T12:47:21.980613",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-05-21T13:02:42.653205",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-06-25T17:04:54.387245",
+    "alert": false,
+    "metadata": {}
+  },
+  {
+    "model": "FinalModel",
+    "accuracy": 0.98,
+    "n_samples": 50,
+    "timestamp": "2026-06-26T10:42:19.153072",
+    "alert": false,
+    "metadata": {}
+  }
+]

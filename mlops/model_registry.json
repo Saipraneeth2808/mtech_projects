@@ -1,0 +1,340 @@
+{
+  "Ensemble": {
+    "versions": [
+      {
+        "version": 1,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\ensemble.pkl",
+        "metrics": {
+          "test_acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-15T14:15:48.320090"
+      },
+      {
+        "version": 2,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\ensemble.pkl",
+        "metrics": {
+          "test_acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-15T14:45:36.958217"
+      },
+      {
+        "version": 3,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\ensemble.pkl",
+        "metrics": {
+          "test_acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-15T15:52:15.153398"
+      },
+      {
+        "version": 4,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\ensemble.pkl",
+        "metrics": {
+          "test_acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-20T11:24:42.512614"
+      },
+      {
+        "version": 5,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\ensemble.pkl",
+        "metrics": {
+          "test_acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-20T11:45:47.866350"
+      },
+      {
+        "version": 6,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\ensemble.pkl",
+        "metrics": {
+          "test_acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Production",
+        "registered": "2026-04-20T12:08:14.522800"
+      }
+    ]
+  },
+  "FinalModel": {
+    "versions": [
+      {
+        "version": 1,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-20T12:39:22.881398"
+      },
+      {
+        "version": 2,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-20T12:46:56.337347"
+      },
+      {
+        "version": 3,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T10:48:34.991474"
+      },
+      {
+        "version": 4,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T11:13:25.547054"
+      },
+      {
+        "version": 5,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T12:46:31.229405"
+      },
+      {
+        "version": 6,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T14:23:10.647966"
+      },
+      {
+        "version": 7,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T14:30:19.384860"
+      },
+      {
+        "version": 8,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T16:30:30.041347"
+      },
+      {
+        "version": 9,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T16:41:08.338899"
+      },
+      {
+        "version": 10,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T17:16:06.337923"
+      },
+      {
+        "version": 11,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-21T17:30:10.917827"
+      },
+      {
+        "version": 12,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-23T18:00:51.827285"
+      },
+      {
+        "version": 13,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-24T12:13:09.862805"
+      },
+      {
+        "version": 14,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-24T12:22:20.535594"
+      },
+      {
+        "version": 15,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-24T12:27:07.953499"
+      },
+      {
+        "version": 16,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-24T12:32:10.596994"
+      },
+      {
+        "version": 17,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-24T12:34:42.011035"
+      },
+      {
+        "version": 18,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-24T12:40:30.263273"
+      },
+      {
+        "version": 19,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-24T12:45:19.213628"
+      },
+      {
+        "version": 20,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-27T17:11:17.334838"
+      },
+      {
+        "version": 21,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-04-28T12:47:21.960505"
+      },
+      {
+        "version": 22,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\models\\final.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-05-21T13:02:42.635061"
+      },
+      {
+        "version": 23,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\preprocessing\\models\\ensemble.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Archived",
+        "registered": "2026-06-25T17:04:54.365478"
+      },
+      {
+        "version": 24,
+        "model_path": "C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project\\outputs\\preprocessing\\models\\ensemble.pkl",
+        "metrics": {
+          "acc": 0.98
+        },
+        "run_id": "",
+        "tags": {},
+        "stage": "Production",
+        "registered": "2026-06-26T10:42:19.123027"
+      }
+    ]
+  }
+}

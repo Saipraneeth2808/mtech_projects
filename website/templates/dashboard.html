@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SpineAI Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+    background:#08111f;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:25px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* KPI */
+
+.kpi-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.kpi-card{
+    background:#101a2c;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,.35);
+}
+
+.kpi-card h3{
+    color:#9fb5d1;
+    margin-bottom:15px;
+}
+
+.kpi-card h1{
+    color:#00ff99;
+    margin:0;
+    font-size:34px;
+}
+
+/* Panels */
+
+.card{
+    background:#101a2c;
+    margin-bottom:25px;
+    border-radius:12px;
+    padding:20px;
+}
+
+.card h2{
+    margin-top:0;
+}
+
+canvas{
+    background:white;
+    border-radius:8px;
+    padding:10px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th{
+background:#1d3355;
+padding:12px;
+border:1px solid #2c4b78;
+}
+
+td{
+padding:12px;
+border:1px solid #2c4b78;
+}
+
+tr:nth-child(even){
+background:#0d1728;
+}
+
+tr:nth-child(odd){
+background:#13213a;
+}
+
+th{
+color:#00ff99;
+}
+
+td{
+color:white;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.kpi-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.kpi-container{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>SpineAI Integrated Dashboard</h1>
+
+<!-- KPI Cards -->
+
+<div class="kpi-container">
+
+<div class="kpi-card">
+<h3>Current Accuracy</h3>
+<h1 id="accuracyCard">--%</h1>
+</div>
+
+<div class="kpi-card">
+<h3>Best F1 Score</h3>
+<h1 id="f1Card">--%</h1>
+</div>
+
+<div class="kpi-card">
+<h3>Drift Status</h3>
+<h1 id="driftCard">Loading</h1>
+</div>
+
+<div class="kpi-card">
+<h3>Active Model</h3>
+<h1 id="modelCard">v1.0</h1>
+</div>
+
+</div>
+
+<!-- Model Chart -->
+
+<div class="card">
+
+<h2>Model Performance</h2>
+
+<canvas id="modelChart"></canvas>
+
+</div>
+
+<!-- Drift -->
+
+<div class="card">
+
+<h2>MLOps Drift Monitoring</h2>
+
+<canvas id="driftChart"></canvas>
+
+</div>
+
+<!-- Registry -->
+
+<div class="card">
+
+<h2>Model Registry</h2>
+
+<table id="registryTable">
+
+<thead>
+
+<tr>
+
+<th>Model</th>
+<th>Accuracy</th>
+<th>Registered</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+</table>
+
+</div>
+
+<script>
+
+loadMetrics();
+loadDrift();
+loadRegistry();
+
+setInterval(loadDrift,5000);
+setInterval(loadRegistry,5000);
+
+let modelChart=null;
+let driftChart=null;
+
+// ----------------------
+// MODEL METRICS
+// ----------------------
+
+async function loadMetrics(){
+
+let r=await fetch("/api/model-metrics");
+let d=await r.json();
+
+if(modelChart){
+
+modelChart.destroy();
+
+}
+
+modelChart=new Chart(
+
+document.getElementById("modelChart"),
+
+{
+
+type:"bar",
+
+data:{
+
+labels:d.models,
+
+datasets:[
+
+{
+
+label:"Accuracy",
+
+data:d.accuracy
+
+},
+
+{
+
+label:"F1 Score",
+
+data:d.f1
+
+}
+
+]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+
+legend:{
+
+labels:{
+
+color:"black"
+
+}
+
+}
+
+},
+
+scales:{
+
+y:{
+
+beginAtZero:true,
+
+max:1
+
+}
+
+}
+
+}
+
+}
+
+);
+
+// KPI
+
+let bestAcc=Math.max(...d.accuracy);
+
+let bestF1=Math.max(...d.f1);
+
+document.getElementById("accuracyCard").innerHTML=
+(bestAcc*100).toFixed(2)+"%";
+
+document.getElementById("f1Card").innerHTML=
+(bestF1*100).toFixed(2)+"%";
+
+}
+
+// ----------------------
+// DRIFT
+// ----------------------
+
+async function loadDrift(){
+
+let r=await fetch("/api/drift");
+
+let d=await r.json();
+
+let latest=d.scores[d.scores.length-1];
+
+if(latest<0.2){
+
+document.getElementById("driftCard").innerHTML="Healthy";
+
+}
+else{
+
+document.getElementById("driftCard").innerHTML="Drift";
+
+}
+
+if(driftChart){
+
+driftChart.data.labels=d.labels;
+
+driftChart.data.datasets[0].data=d.scores;
+
+driftChart.update();
+
+return;
+
+}
+
+driftChart=new Chart(
+
+document.getElementById("driftChart"),
+
+{
+
+type:"line",
+
+data:{
+
+labels:d.labels,
+
+datasets:[
+
+{
+
+label:"Drift Score",
+
+data:d.scores,
+
+fill:false
+
+}
+
+]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+
+legend:{
+
+labels:{
+
+color:"black"
+
+}
+
+}
+
+},
+
+scales:{
+
+y:{
+
+beginAtZero:true
+
+}
+
+}
+
+}
+
+}
+
+);
+
+}
+
+// ----------------------
+// REGISTRY
+// ----------------------
+
+async function loadRegistry(){
+
+    let r = await fetch("/api/registry");
+    let data = await r.json();
+
+    let tbody = document.querySelector("#registryTable tbody");
+    tbody.innerHTML = "";
+
+    data.forEach(model => {
+
+        let row = document.createElement("tr");
+
+        row.innerHTML = `
+        <td>${model.model}</td>
+        <td>${typeof model.accuracy==="number"
+            ? (model.accuracy*100).toFixed(2)+"%"
+            : model.accuracy}</td>
+            
+            <td>${model.registered}</td>
+            <td>${model.status=="Production"
+                ? "🟢 Production"
+                : "⚪ Archived"}</td>
+                `;
+
+        tbody.appendChild(row);
+
+    });
+
+    // Latest active model
+    let latest = data.find(x => x.status=="Production");
+
+    if(latest){
+        document.getElementById("modelCard").innerHTML = latest.version;
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
+

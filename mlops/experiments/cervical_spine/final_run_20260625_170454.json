@@ -1,0 +1,18 @@
+{
+  "run_id": "final_run_20260625_170454",
+  "name": "final_run",
+  "start": "2026-06-25T17:04:54.328648",
+  "status": "FINISHED",
+  "params": {},
+  "metrics": {
+    "accuracy": [
+      {
+        "value": 0.98,
+        "ts": 1782387294.328648
+      }
+    ]
+  },
+  "artifacts": [],
+  "tags": {},
+  "end": "2026-06-25T17:04:54.328648"
+}

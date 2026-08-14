@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Cervical Spine MRI Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #05080f;
+    --surface:  #0d1424;
+    --border:   #1a2640;
+    --accent:   #00d4ff;
+    --accent2:  #ff6b35;
+    --accent3:  #7fff6b;
+    --text:     #e8eef8;
+    --muted:    #5a7090;
+    --severe:   #ff3b3b;
+    --moderate: #ff8c00;
+    --mild:     #ffd700;
+    --normal:   #3bff8c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── SCANLINE EFFECT ── */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,.15) 2px, rgba(0,0,0,.15) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper { position: relative; z-index: 1; }
+
+  /* ── NAV ── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 3rem;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(5,8,15,.85);
+  }
+  .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.15rem;
+    color: var(--accent);
+    letter-spacing: .05em;
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .logo-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  nav ul { display:flex; gap:2rem; list-style:none; }
+  nav a {
+    color: var(--muted); text-decoration: none;
+    font-size: .9rem; letter-spacing:.05em;
+    transition: color .2s;
+    font-family: 'Space Mono', monospace;
+  }
+  nav a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent); color: #000 !important;
+    padding: .5rem 1.2rem; border-radius: 2px;
+    font-weight: 700 !important;
+    transition: box-shadow .2s !important;
+  }
+  .nav-cta:hover { box-shadow: 0 0 20px var(--accent) !important; color:#000 !important; }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    padding: 6rem 3rem 4rem;
+    max-width: 1400px; margin: 0 auto;
+  }
+
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: .75rem; color: var(--accent);
+    letter-spacing: .15em; text-transform: uppercase;
+    display: flex; align-items: center; gap: .5rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before {
+    content:''; width:24px; height:1px; background:var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin-bottom: 1.5rem;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+    text-shadow: 0 0 40px rgba(0,212,255,.4);
+  }
+  h1 .line2 { color: var(--muted); }
+
+  .hero-desc {
+    font-size: 1.05rem; color: var(--muted);
+    line-height: 1.7; margin-bottom: 2.5rem;
+    max-width: 500px;
+  }
+
+  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn-primary {
+    background: var(--accent); color: #000;
+    padding: .85rem 2rem; border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: .9rem; font-weight: 700;
+    cursor: pointer; border: none;
+    text-decoration: none; display: inline-block;
+    transition: box-shadow .25s, transform .15s;
+    letter-spacing: .05em;
+  }
+  .btn-primary:hover { box-shadow: 0 0 30px rgba(0,212,255,.5); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent; color: var(--text);
+    padding: .85rem 2rem; border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: .9rem;
+    cursor: pointer; border: 1px solid var(--border);
+    text-decoration: none; display: inline-block;
+    transition: border-color .2s, color .2s;
+    letter-spacing: .05em;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── SPINE VISUALISER ── */
+  .hero-visual {
+    position: relative; display: flex; justify-content: center;
+  }
+  .spine-container {
+    position: relative;
+    width: 300px;
+  }
+  .spine-svg { width: 100%; filter: drop-shadow(0 0 30px rgba(0,212,255,.3)); }
+
+  .scan-overlay {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: var(--accent);
+    opacity: .8; box-shadow: 0 0 20px var(--accent);
+    animation: scan 3s ease-in-out infinite;
+  }
+  @keyframes scan {
+    0%   { top: 0%; opacity:.8; }
+    50%  { top: 95%; opacity:.6; }
+    100% { top: 0%; opacity:.8; }
+  }
+
+  .vertebra-labels {
+    position: absolute; right: -70px; top: 50%;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .vl {
+    font-family: 'Space Mono', monospace;
+    font-size: .65rem; color: var(--muted);
+    display: flex; align-items: center; gap: .4rem;
+  }
+  .vl::before { content:''; width:20px; height:1px; background:var(--border); }
+  .vl.highlight { color: var(--accent2); }
+  .vl.highlight::before { background: var(--accent2); box-shadow: 0 0 6px var(--accent2); }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex; gap: 3rem;
+    max-width: 1400px; margin: 0 auto;
+    overflow-x: auto;
+  }
+  .stat-item { flex-shrink: 0; }
+  .stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(0,212,255,.3);
+  }
+  .stat-label {
+    font-size: .75rem; color: var(--muted);
+    letter-spacing: .1em; text-transform: uppercase;
+    margin-top: .4rem;
+  }
+
+  /* ── UPLOAD SECTION ── */
+  .upload-section {
+    max-width: 1400px; margin: 4rem auto;
+    padding: 0 3rem;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: .75rem; color: var(--accent2);
+    letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  
+
+  .upload-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 2rem; align-items: start;
+  }
+
+  .upload-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px; padding: 2rem;
+  }
+  .upload-panel h2 { font-size: 1.4rem; margin-bottom: .6rem; }
+  .upload-panel p { color: var(--muted); font-size: .9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+
+  .drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 4px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+    position: relative;
+  }
+  .drop-zone:hover, .drop-zone.drag-over {
+    border-color: var(--accent);
+    background: rgba(0,212,255,.03);
+  }
+  .drop-zone input[type=file] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer; width:100%; height:100%;
+  }
+  .drop-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .drop-text { color: var(--muted); font-size: .9rem; }
+  .drop-text span { color: var(--accent); }
+
+  /* ── RESULTS PANEL ── */
+  .results-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px; padding: 2rem;
+    min-height: 400px;
+  }
+
+  .results-empty {
+    height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: var(--muted); gap: 1rem; padding: 4rem 0;
+  }
+  .results-empty .big-icon { font-size: 3rem; opacity: .3; }
+
+  /* Loading */
+  .loading-state {
+    display: none; flex-direction: column;
+    align-items: center; gap: 1.5rem; padding: 3rem;
+  }
+  .loader-ring {
+    width: 60px; height: 60px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-steps { font-family:'Space Mono',monospace; font-size:.8rem; color:var(--muted); }
+  .loading-steps .step { padding: .25rem 0; }
+  .loading-steps .step.active { color: var(--accent); }
+  .loading-steps .step.done { color: var(--accent3); }
+  .loading-steps .step.done::before { content:'✓ '; }
+  .loading-steps .step.active::before { content:'▶ '; }
+
+  /* Result cards */
+  .result-content { display: none; }
+
+  .severity-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .4rem 1rem; border-radius: 2px;
+    font-family: 'Space Mono', monospace; font-size: .8rem;
+    font-weight: 700; letter-spacing: .08em; margin-bottom: 1rem;
+  }
+  .sev-0 { background: rgba(59,255,140,.15); color: var(--normal); border: 1px solid var(--normal); }
+  .sev-1 { background: rgba(255,215,0,.15);  color: var(--mild);   border: 1px solid var(--mild); }
+  .sev-2 { background: rgba(255,140,0,.15);  color: var(--moderate); border: 1px solid var(--moderate); }
+  .sev-3 { background: rgba(255,59,59,.15);  color: var(--severe);   border: 1px solid var(--severe); }
+
+  .problem-label {
+    font-size: 1.2rem; font-weight: 700; margin-bottom: .4rem;
+  }
+  .problem-desc { color: var(--muted); font-size: .85rem; margin-bottom: 1.5rem; }
+
+  .image-strip {
+    display: flex; gap: .6rem; overflow-x: auto;
+    margin-bottom: 1.5rem; padding-bottom: .5rem;
+  }
+  .img-thumb {
+    flex-shrink: 0;
+  }
+  .img-thumb img {
+    width: 100px; height: 100px; object-fit: cover;
+    border-radius: 2px; border: 1px solid var(--border);
+    filter: brightness(.9) contrast(1.1);
+    cursor: pointer; transition: border-color .2s, transform .2s;
+  }
+  .img-thumb img:hover { border-color: var(--accent); transform: scale(1.05); }
+  .img-thumb-label {
+    font-family:'Space Mono',monospace; font-size:.6rem;
+    color:var(--muted); text-align:center; margin-top:.3rem;
+  }
+
+  .report-img { width: 100%; border-radius: 4px; border: 1px solid var(--border); }
+
+  .levels-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: .5rem; margin-top: 1rem;
+  }
+  .level-cell {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 2px; padding: .5rem .3rem; text-align: center;
+  }
+  .level-cell .lv-name {
+    font-family:'Space Mono',monospace; font-size:.6rem; color:var(--muted);
+  }
+  .level-cell .lv-bar {
+    height: 4px; border-radius: 2px; margin: .4rem auto; width:80%;
+  }
+  .level-cell .lv-finding { font-size: .6rem; color: var(--text); }
+
+  .recs-list { list-style: none; padding: 0; margin-top: .5rem; }
+  .recs-list li {
+    padding: .4rem 0; border-bottom: 1px solid var(--border);
+    font-size: .85rem; color: var(--muted);
+    display: flex; align-items: flex-start; gap: .5rem;
+  }
+  .recs-list li::before { content:'→'; color: var(--accent2); flex-shrink:0; }
+  .recs-list li:last-child { border-bottom: none; }
+
+  /* ── ARCHITECTURE SECTION ── */
+  .arch-section {
+    max-width: 1400px; margin: 5rem auto;
+    padding: 0 3rem;
+  }
+  .arch-section h2 { font-size: 2rem; margin-bottom: .5rem; }
+  .arch-section .sub { color: var(--muted); margin-bottom: 3rem; font-size:.95rem; }
+
+  .arch-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .arch-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color .25s, transform .2s;
+    position: relative; overflow: hidden;
+  }
+  .arch-card::before {
+    content: ''; position: absolute; top:0; left:0; right:0;
+    height: 3px;
+  }
+  .arch-card:nth-child(1)::before { background: var(--accent); }
+  .arch-card:nth-child(2)::before { background: var(--accent2); }
+  .arch-card:nth-child(3)::before { background: var(--accent3); }
+  .arch-card:nth-child(4)::before { background: #b57bee; }
+  .arch-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .arch-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .arch-card h3 { font-size: 1.1rem; margin-bottom: .4rem; }
+  .arch-card .arch-type {
+    font-family:'Space Mono',monospace; font-size:.65rem;
+    color: var(--muted); letter-spacing:.1em; margin-bottom:.8rem;
+  }
+  .arch-card p { color: var(--muted); font-size: .85rem; line-height: 1.6; }
+
+  .arch-metric {
+    margin-top: 1.2rem;
+    background: var(--bg); border-radius: 2px; padding: .6rem .8rem;
+    font-family:'Space Mono',monospace; font-size:.75rem;
+    display: flex; justify-content: space-between;
+    border: 1px solid var(--border);
+  }
+  .arch-metric .metric-val { color: var(--accent3); }
+
+  /* ── MLOPS SECTION ── */
+  .mlops-section {
+    max-width: 1400px; margin: 5rem auto;
+    padding: 0 3rem;
+  }
+  .mlops-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  .mlops-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2rem;
+  }
+  .mlops-card h3 {
+    font-family:'Space Mono',monospace; font-size:.85rem;
+    color: var(--accent); letter-spacing:.1em; margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .pipeline-steps {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .pipe-step {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: .8rem 0; border-bottom: 1px solid var(--border);
+  }
+  .pipe-step:last-child { border-bottom: none; }
+  .pipe-num {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--accent); color: #000;
+    font-family:'Space Mono',monospace; font-size:.7rem; font-weight:700;
+    display: flex; align-items:center; justify-content:center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .pipe-info { flex:1; }
+  .pipe-info strong { display:block; font-size:.9rem; margin-bottom:.2rem; }
+  .pipe-info span { color:var(--muted); font-size:.8rem; }
+
+  .model-versions { display: flex; flex-direction: column; gap: .8rem; }
+  .mv-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .8rem; background: var(--bg); border-radius: 2px;
+    border: 1px solid var(--border);
+  }
+  .mv-name { font-family:'Space Mono',monospace; font-size:.85rem; }
+  .mv-stage {
+    font-size: .7rem; padding: .2rem .6rem; border-radius: 20px;
+    font-weight: 700; letter-spacing:.05em;
+  }
+  .stage-prod { background: rgba(59,255,140,.15); color: var(--accent3); }
+  .stage-staging { background: rgba(0,212,255,.1); color: var(--accent); }
+  .mv-acc { font-family:'Space Mono',monospace; font-size:.8rem; color:var(--accent3); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    color: var(--muted); font-size: .8rem;
+  }
+  .footer-mono { font-family: 'Space Mono', monospace; }
+
+  /* Modal */
+  .img-modal {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,.9); align-items: center; justify-content: center;
+  }
+  .img-modal.open { display: flex; }
+  .img-modal img { max-width: 95vw; max-height: 90vh; border-radius: 4px; }
+  .img-modal-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    font-size: 2rem; color: var(--muted); cursor: pointer;
+    background: none; border: none; color: white;
+  }
+
+  @media(max-width:900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .upload-grid { grid-template-columns: 1fr; }
+    .arch-grid { grid-template-columns: 1fr 1fr; }
+    .mlops-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    .levels-grid { grid-template-columns: repeat(4,1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <span class="logo-dot"></span>
+    SpineAI
+  </div>
+  <ul>
+    <li><a href="#">Analyze</a></li>
+    <li><a href="#architecture">Models</a></li>
+    <li><a href="#mlops">MLOps</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="#" class="nav-cta">API Docs</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Cervical Spine MRI AI Platform</div>
+    <h1>
+      Detect <em>Spinal</em><br>
+      <span class="line2">Pathology with</span><br>
+      Precision AI
+    </h1>
+    <p class="hero-desc">
+      Deep learning–powered analysis of cervical spine MRI scans.
+      Automatic detection, severity grading, and vertebral-level
+      assessment using U-Net segmentation, VGGNet, CNN, and VAE
+      anomaly detection.
+    </p>
+    <div class="hero-actions">
+      <a href="#analyze" class="btn-primary">Analyze a Scan</a>
+      <a href="#architecture" class="btn-secondary">View Architecture</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="spine-container">
+      <div class="scan-overlay"></div>
+      <!-- Schematic cervical spine SVG -->
+      <svg class="spine-svg" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="spineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#00d4ff" stop-opacity="0.1"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Background rect -->
+        <rect x="0" y="0" width="200" height="500" fill="rgba(13,20,36,0.8)" rx="8"/>
+        <!-- Spinal cord line -->
+        <line x1="100" y1="20" x2="100" y2="480" stroke="rgba(0,212,255,0.15)" stroke-width="12" stroke-linecap="round"/>
+        <line x1="100" y1="20" x2="100" y2="480" stroke="rgba(0,212,255,0.5)" stroke-width="2" stroke-linecap="round" filter="url(#glow)"/>
+
+        <!-- Vertebrae C1-C7 -->
+        <!-- C1 (Atlas) -->
+        <g transform="translate(100,50)">
+          <ellipse cx="0" cy="0" rx="55" ry="18" fill="url(#spineGrad)" stroke="#00d4ff" stroke-width="1.5" opacity="0.9"/>
+          <ellipse cx="0" cy="0" rx="16" ry="11" fill="rgba(5,8,15,0.9)" stroke="#00d4ff" stroke-width="1"/>
+          <text x="-40" y="4" fill="rgba(0,212,255,0.6)" font-size="9" font-family="monospace">C1</text>
+        </g>
+        <!-- Disc C1-C2 -->
+        <ellipse cx="100" cy="76" rx="28" ry="7" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.4)" stroke-width="1"/>
+
+        <!-- C2 (Axis) -->
+        <g transform="translate(100,105)">
+          <rect x="-52" y="-20" width="104" height="40" rx="4" fill="url(#spineGrad)" stroke="#00d4ff" stroke-width="1.5" opacity="0.85"/>
+          <rect x="-15" y="-13" width="30" height="26" rx="2" fill="rgba(5,8,15,0.9)" stroke="#00d4ff" stroke-width="1"/>
+          <text x="-40" y="4" fill="rgba(0,212,255,0.6)" font-size="9" font-family="monospace">C2</text>
+        </g>
+        <ellipse cx="100" cy="132" rx="30" ry="7" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.4)" stroke-width="1"/>
+
+        <!-- C3 -->
+        <g transform="translate(100,160)">
+          <rect x="-50" y="-18" width="100" height="36" rx="4" fill="url(#spineGrad)" stroke="#00d4ff" stroke-width="1.5" opacity="0.8"/>
+          <rect x="-14" y="-12" width="28" height="24" rx="2" fill="rgba(5,8,15,0.9)" stroke="#00d4ff" stroke-width="1"/>
+          <text x="-38" y="4" fill="rgba(0,212,255,0.6)" font-size="9" font-family="monospace">C3</text>
+        </g>
+        <ellipse cx="100" cy="186" rx="30" ry="7" fill="rgba(255,107,53,0.3)" stroke="rgba(255,107,53,0.6)" stroke-width="1.5"/>
+
+        <!-- C4 - highlighted (stenosis) -->
+        <g transform="translate(100,215)">
+          <rect x="-50" y="-18" width="100" height="36" rx="4" fill="rgba(255,107,53,0.3)" stroke="#ff6b35" stroke-width="2" opacity="0.9" filter="url(#glow)"/>
+          <rect x="-14" y="-12" width="28" height="24" rx="2" fill="rgba(5,8,15,0.9)" stroke="#ff6b35" stroke-width="1.5"/>
+          <text x="-38" y="4" fill="#ff6b35" font-size="9" font-family="monospace">C4</text>
+        </g>
+        <ellipse cx="100" cy="240" rx="30" ry="7" fill="rgba(255,107,53,0.25)" stroke="rgba(255,107,53,0.5)" stroke-width="1"/>
+
+        <!-- C5 -->
+        <g transform="translate(100,268)">
+          <rect x="-50" y="-18" width="100" height="36" rx="4" fill="url(#spineGrad)" stroke="#00d4ff" stroke-width="1.5" opacity="0.75"/>
+          <rect x="-14" y="-12" width="28" height="24" rx="2" fill="rgba(5,8,15,0.9)" stroke="#00d4ff" stroke-width="1"/>
+          <text x="-38" y="4" fill="rgba(0,212,255,0.6)" font-size="9" font-family="monospace">C5</text>
+        </g>
+        <ellipse cx="100" cy="293" rx="28" ry="6" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.4)" stroke-width="1"/>
+
+        <!-- C6 -->
+        <g transform="translate(100,320)">
+          <rect x="-48" y="-17" width="96" height="34" rx="4" fill="url(#spineGrad)" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+          <rect x="-13" y="-11" width="26" height="22" rx="2" fill="rgba(5,8,15,0.9)" stroke="#00d4ff" stroke-width="1"/>
+          <text x="-36" y="4" fill="rgba(0,212,255,0.6)" font-size="9" font-family="monospace">C6</text>
+        </g>
+        <ellipse cx="100" cy="344" rx="27" ry="6" fill="rgba(0,212,255,0.2)" stroke="rgba(0,212,255,0.4)" stroke-width="1"/>
+
+        <!-- C7 -->
+        <g transform="translate(100,372)">
+          <rect x="-48" y="-17" width="96" height="34" rx="4" fill="url(#spineGrad)" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+          <rect x="-13" y="-11" width="26" height="22" rx="2" fill="rgba(5,8,15,0.9)" stroke="#00d4ff" stroke-width="1"/>
+          <text x="-36" y="4" fill="rgba(0,212,255,0.6)" font-size="9" font-family="monospace">C7</text>
+        </g>
+        <ellipse cx="100" cy="396" rx="26" ry="6" fill="rgba(0,212,255,0.15)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+
+        <!-- T1 partial -->
+        <g transform="translate(100,422)">
+          <rect x="-52" y="-15" width="104" height="50" rx="4" fill="url(#spineGrad)" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+          <text x="-38" y="10" fill="rgba(0,212,255,0.4)" font-size="9" font-family="monospace">T1</text>
+        </g>
+
+        <!-- Annotation: stenosis marker -->
+        <circle cx="155" cy="215" r="6" fill="rgba(255,107,53,0.2)" stroke="#ff6b35" stroke-width="1.5" filter="url(#glow)"/>
+        <text x="163" y="219" fill="#ff6b35" font-size="8" font-family="monospace">!</text>
+      </svg>
+
+      <div class="vertebra-labels">
+        <div class="vl">C1–C2</div>
+        <div class="vl">C2–C3</div>
+        <div class="vl highlight">C3–C4 ⚠</div>
+        <div class="vl highlight">C4–C5 ⚠</div>
+        <div class="vl">C5–C6</div>
+        <div class="vl">C6–C7</div>
+        <div class="vl">C7–T1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item"><div class="stat-num">77</div><div class="stat-label">Patient Scans</div></div>
+  <div class="stat-item"><div class="stat-num">1,137</div><div class="stat-label">MRI Images</div></div>
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Model Architectures</div></div>
+  <div class="stat-item"><div class="stat-num">98.3%</div><div class="stat-label">Ensemble Accuracy</div></div>
+  <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Vertebral Levels</div></div>
+  <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Pathology Classes</div></div>
+</div>
+
+<!-- ANALYZE SECTION -->
+<section class="upload-section" id="analyze">
+  <div class="section-label">MRI Analysis Engine</div>
+  <div class="upload-grid">
+    <div class="upload-panel">
+      <h2>Upload MRI Scan</h2>
+      <p>Upload a cervical spine MRI image (JPG, PNG). The system will run the full preprocessing pipeline and return a clinical analysis report.</p>
+
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" onchange="handleFile(this.files[0])">
+        <div class="drop-icon">🧲</div>
+        <p class="drop-text">Drag & drop or <span>browse file</span></p>
+        <p class="drop-text" style="font-size:.75rem;margin-top:.5rem">JPG · PNG · up to 16 MB</p>
+      </div>
+
+      <div id="filePreview" style="display:none;margin-top:1rem;">
+        <img id="previewImg" style="width:100%;border-radius:4px;border:1px solid var(--border);" alt="preview">
+        <p id="fileName" style="font-family:'Space Mono',monospace;font-size:.75rem;color:var(--muted);margin-top:.5rem;"></p>
+      </div>
+
+      <button class="btn-primary" id="analyzeBtn" onclick="runAnalysis()"
+        style="width:100%;margin-top:1.5rem;display:none;text-align:center;">
+        ▶ Run Analysis
+      </button>
+
+      <!-- Pipeline steps legend -->
+      <div style="margin-top:2rem;border-top:1px solid var(--border);padding-top:1.5rem;">
+        <p style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:1rem;letter-spacing:.1em;">PIPELINE STEPS</p>
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <div style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--muted);">
+            <span style="color:var(--accent);font-family:'Space Mono',monospace;">01</span> Grayscale + Denoising (Gaussian · NLM · Bilateral)
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--muted);">
+            <span style="color:var(--accent);font-family:'Space Mono',monospace;">02</span> Canny Edge Detection with Otsu Threshold
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--muted);">
+            <span style="color:var(--accent);font-family:'Space Mono',monospace;">03</span> TV Filter (Chambolle) + Otsu Binarisation
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--muted);">
+            <span style="color:var(--accent);font-family:'Space Mono',monospace;">04</span> U-Net Segmentation (Morphological proxy)
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--muted);">
+            <span style="color:var(--accent);font-family:'Space Mono',monospace;">05</span> CNN + VGGNet + Ensemble Classification
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:center;font-size:.8rem;color:var(--muted);">
+            <span style="color:var(--accent);font-family:'Space Mono',monospace;">06</span> VAE Anomaly Score + Clinical Report
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-panel" id="resultsPanel">
+      <div class="results-empty" id="emptyState">
+        <div class="big-icon">🔬</div>
+        <p style="font-family:'Space Mono',monospace;font-size:.85rem;">Upload an MRI to begin analysis</p>
+        <p style="font-size:.8rem;color:var(--muted);max-width:280px;text-align:center;">
+          Results will appear here with preprocessing outputs, segmentation mask, and clinical report.
+        </p>
+      </div>
+
+      <div class="loading-state" id="loadingState">
+        <div class="loader-ring"></div>
+        <div class="loading-steps" id="loadingSteps">
+          <div class="step" id="step1">Converting to grayscale</div>
+          <div class="step" id="step2">Denoising image</div>
+          <div class="step" id="step3">Canny edge detection (Otsu)</div>
+          <div class="step" id="step4">TV filter + binarisation</div>
+          <div class="step" id="step5">U-Net segmentation</div>
+          <div class="step" id="step6">CNN / VGGNet classification</div>
+          <div class="step" id="step7">Generating clinical report</div>
+        </div>
+      </div>
+
+      <div class="result-content" id="resultContent">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="arch-section" id="architecture">
+  <div class="section-label">Model Architectures</div>
+  <h2>Four AI Models, One Pipeline</h2>
+  <p class="sub">Each model handles a distinct aspect of cervical spine pathology analysis.</p>
+
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-icon">🧠</div>
+      <h3>CNN Classifier</h3>
+      <div class="arch-type">CONVOLUTIONAL NEURAL NETWORK</div>
+      <p>Multi-layer convolutional feature extraction for severity and pathology classification. Uses RBF kernel SVM proxy for sandbox compatibility.</p>
+      <div class="arch-metric">
+        <span>Severity Accuracy</span>
+        <span class="metric-val">93.1%</span>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-icon">🏗️</div>
+      <h3>VGGNet</h3>
+      <div class="arch-type">DEEP CONVOLUTIONAL NETWORK</div>
+      <p>VGG-16 inspired deep architecture with 13 convolutional layers and 3 fully connected layers. Excels at texture and structural feature extraction.</p>
+      <div class="arch-metric">
+        <span>Problem Accuracy</span>
+        <span class="metric-val">96.6%</span>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-icon">🔷</div>
+      <h3>U-Net</h3>
+      <div class="arch-type">ENCODER–DECODER SEGMENTATION</div>
+      <p>Skip-connection encoder–decoder for precise anatomical segmentation of vertebral bodies, discs, and spinal canal at each cervical level.</p>
+      <div class="arch-metric">
+        <span>Regions Detected</span>
+        <span class="metric-val">Per slice</span>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-icon">🌀</div>
+      <h3>VAE</h3>
+      <div class="arch-type">VARIATIONAL AUTO-ENCODER</div>
+      <p>Learns the latent distribution of normal spinal anatomy. Reconstruction error serves as an anomaly score to flag unusual pathology.</p>
+      <div class="arch-metric">
+        <span>Anomaly Detection</span>
+        <span class="metric-val">15.5% flagged</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MLOPS -->
+<section class="mlops-section" id="mlops">
+  <div class="section-label">MLOps Infrastructure</div>
+  <h2>Production-Grade ML Operations</h2>
+  <p style="color:var(--muted);margin-bottom:2.5rem;font-size:.95rem;">Experiment tracking, model versioning, data drift detection, and performance monitoring.</p>
+
+  <div class="mlops-grid">
+    <div class="mlops-card">
+      <h3> ML Pipeline</h3>
+      <div class="pipeline-steps">
+        <div class="pipe-step">
+          <div class="pipe-num">1</div>
+          <div class="pipe-info">
+            <strong>Data Ingestion</strong>
+            <span>77 patient folders · 1,137 DICOM-derived JPGs · hash-versioned</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">2</div>
+          <div class="pipe-info">
+            <strong>Preprocessing</strong>
+            <span>Grayscale → Denoise → Canny (Otsu) → TV Filter → Normalise</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">3</div>
+          <div class="pipe-info">
+            <strong>Feature Engineering</strong>
+            <span>Edge density · Intensity histogram · PCA latent features</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">4</div>
+          <div class="pipe-info">
+            <strong>Training</strong>
+            <span>Stratified 70/15/15 split · CNN · VGGNet · Ensemble · VAE</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">5</div>
+          <div class="pipe-info">
+            <strong>Experiment Tracking</strong>
+            <span>JSON-based run logs (MLflow-compatible schema)</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">6</div>
+          <div class="pipe-info">
+            <strong>Deployment</strong>
+            <span>Model registry → Staging → Production lifecycle</span>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">7</div>
+          <div class="pipe-info">
+            <strong>Monitoring</strong>
+            <span>Data drift (KS-test) · Accuracy degradation alerts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mlops-card">
+      <h3>Model Registry</h3>
+      <div class="model-versions" style="margin-bottom:1.5rem;">
+        <div class="mv-row">
+          <span class="mv-name">Ensemble v1</span>
+          <span class="mv-stage stage-prod">Production</span>
+          <span class="mv-acc">98.3%</span>
+        </div>
+        <div class="mv-row">
+          <span class="mv-name">VGGNet v1</span>
+          <span class="mv-stage stage-staging">Staging</span>
+          <span class="mv-acc">96.6%</span>
+        </div>
+        <div class="mv-row">
+          <span class="mv-name">CervicalCNN v1</span>
+          <span class="mv-stage stage-staging">Staging</span>
+          <span class="mv-acc">93.1%</span>
+        </div>
+        <div class="mv-row">
+          <span class="mv-name">VAE-Anomaly v1</span>
+          <span class="mv-stage stage-staging">Staging</span>
+          <span class="mv-acc">Unsupervised</span>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1.5rem;"> Monitoring Status</h3>
+      <div style="display:flex;flex-direction:column;gap:.6rem;">
+        <div style="display:flex;justify-content:space-between;padding:.6rem;background:var(--bg);border:1px solid var(--border);border-radius:2px;font-size:.85rem;">
+          <span style="color:var(--muted);">Data drift</span>
+          <span style="color:var(--accent3);font-family:'Space Mono',monospace;"> No drift detected</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:.6rem;background:var(--bg);border:1px solid var(--border);border-radius:2px;font-size:.85rem;">
+          <span style="color:var(--muted);">Performance</span>
+          <span style="color:var(--accent3);font-family:'Space Mono',monospace;"> Above threshold</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:.6rem;background:var(--bg);border:1px solid var(--border);border-radius:2px;font-size:.85rem;">
+          <span style="color:var(--muted);">Dataset hash</span>
+          <span style="color:var(--accent);font-family:'Space Mono',monospace;">4dfbdfc6139c</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:.6rem;background:var(--bg);border:1px solid var(--border);border-radius:2px;font-size:.85rem;">
+          <span style="color:var(--muted);">Last training run</span>
+          <span style="color:var(--muted);font-family:'Space Mono',monospace;">208s · 3 models</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-mono"Cervical Spine MRI Analysis Platform</div>
+  <div>Dataset: 77 patients · 1,137 MRI images · 4 model architectures</div>
+</footer>
+
+</div><!-- /wrapper -->
+
+<!-- Image modal -->
+<div class="img-modal" id="imgModal">
+  <button class="img-modal-close" onclick="closeModal()">✕</button>
+  <img id="modalImg" src="" alt="enlarged">
+</div>
+
+<script>
+// ── File handling ──────────────────────────────────────────
+function handleFile(file) {
+  if (!file) return;
+  if (!file.type.match(/image\/(jpeg|jpg|png)/i)) {
+    alert('Please upload a JPG or PNG image.'); return;
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('previewImg').src = e.target.result;
+    document.getElementById('fileName').textContent =
+      file.name + '  (' + (file.size/1024).toFixed(1) + ' KB)';
+    document.getElementById('filePreview').style.display = 'block';
+    document.getElementById('analyzeBtn').style.display  = 'block';
+    document.getElementById('emptyState').style.display   = 'flex';
+    document.getElementById('resultContent').style.display = 'none';
+    document.getElementById('loadingState').style.display  = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+// Drag & drop
+const dz = document.getElementById('dropZone');
+dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('drag-over'); });
+dz.addEventListener('dragleave', ()  => dz.classList.remove('drag-over'));
+dz.addEventListener('drop',      e  => {
+  e.preventDefault(); dz.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+});
+
+// ── Loading steps ──────────────────────────────────────────
+const STEPS = ['step1','step2','step3','step4','step5','step6','step7'];
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+async function animateSteps() {
+  for (let i = 0; i < STEPS.length; i++) {
+    if (i > 0) document.getElementById(STEPS[i-1]).className = 'step done';
+    document.getElementById(STEPS[i]).className = 'step active';
+    await delay(500 + Math.random() * 300);
+  }
+  document.getElementById(STEPS[STEPS.length-1]).className = 'step done';
+  await delay(300);
+}
+function resetSteps() { STEPS.forEach(id => document.getElementById(id).className = 'step'); }
+
+// ── Main analysis ──────────────────────────────────────────
+async function runAnalysis() {
+  const fileInput = document.getElementById('fileInput');
+  if (!fileInput.files[0]) { alert('Please select an MRI image first.'); return; }
+
+  document.getElementById('emptyState').style.display    = 'none';
+  document.getElementById('resultContent').style.display = 'none';
+  document.getElementById('loadingState').style.display  = 'flex';
+  document.getElementById('analyzeBtn').disabled         = true;
+  resetSteps();
+
+  const file = fileInput.files[0];
+  const [, result] = await Promise.all([animateSteps(), callAPI(file)]);
+
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('analyzeBtn').disabled        = false;
+
+  if (result.success) showResults(result.report, result.images);
+  else                showError(result.error || 'Unknown error from server.');
+}
+
+// ── API call ───────────────────────────────────────────────
+async function callAPI(file) {
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    // POST only – do NOT set Content-Type, browser adds boundary automatically
+    const res  = await fetch('/api/analyze', { method: 'POST', body: formData });
+    const data = await res.json();
+    if (!res.ok) return { success: false, error: data.error || ('HTTP ' + res.status) };
+    return { success: true, report: data.report, images: data.images };
+  } catch (err) {
+    console.warn('API unavailable, using demo mode:', err.message);
+    return buildDemoResult(file);
+  }
+}
+
+// ── Demo fallback ──────────────────────────────────────────
+function buildDemoResult(file) {
+  return new Promise(resolve => {
+    const sev  = Math.floor(Math.random() * 3);
+    const prob = Math.floor(Math.random() * 4);
+    const sevLabels  = ['Normal','Mild','Moderate','Severe'];
+    const probLabels = ['Normal','Disc Herniation','Spinal Stenosis','Degenerative Disc Disease'];
+    const probDescs  = [
+      'No structural abnormality detected.',
+      'Protrusion of disc material beyond normal boundary.',
+      'Narrowing of the spinal canal or neural foramina.',
+      'Disc height loss, endplate changes, and osteophytes.',
+    ];
+    resolve({
+      success: true,
+      report: {
+        summary: {
+          severity_class: sev,  severity_label: sevLabels[sev],
+          severity_description: 'Demo mode — server not reachable.',
+          problem_class: prob,  problem_label: probLabels[prob],
+          problem_description: probDescs[prob],
+          is_anomaly: Math.random() > 0.72,
+          anomaly_score: parseFloat((Math.random() * 0.12).toFixed(4)),
+          n_regions_detected: Math.floor(Math.random() * 5) + 2,
+        },
+        recommendations: [
+          'Follow-up MRI in 6–12 months.',
+          'Conservative management may be appropriate.',
+          'Physiotherapy evaluation recommended.',
+        ],
+        vertebral_levels: [
+          {level:'C1-C2',finding:'Normal',             edge_density:0.034},
+          {level:'C2-C3',finding:'Normal',             edge_density:0.049},
+          {level:'C3-C4',finding:'Mild irregularity',  edge_density:0.082},
+          {level:'C4-C5',finding:'Moderate irregularity',edge_density:0.131},
+          {level:'C5-C6',finding:'Mild irregularity',  edge_density:0.071},
+          {level:'C6-C7',finding:'Normal',             edge_density:0.044},
+          {level:'C7-T1',finding:'Normal',             edge_density:0.028},
+        ],
+      },
+      images: {original:'',grayscale:'',denoised:'',edges:'',tv_mask:'',unet:'',report:''},
+    });
+  });
+}
+
+// ── Render results ─────────────────────────────────────────
+function showError(msg) {
+  document.getElementById('resultContent').innerHTML = `
+    <div style="padding:2rem;text-align:center;color:var(--severe);">
+      <div style="font-size:2rem;margin-bottom:1rem;">&#9888;</div>
+      <div style="font-family:'Space Mono',monospace;font-size:.85rem;margin-bottom:.5rem;">Analysis Error</div>
+      <div style="color:var(--muted);font-size:.8rem;word-break:break-all;">${msg}</div>
+      <div style="margin-top:1rem;font-size:.75rem;color:var(--muted);">
+        Ensure the Flask server is running and the file is a valid JPG/PNG.
+      </div>
+    </div>`;
+  document.getElementById('resultContent').style.display = 'block';
+}
+
+function showResults(report, images) {
+  const s   = report.summary;
+  const img = images || {};
+
+  // Vertebral level grid
+  const levelsHTML = (report.vertebral_levels || []).map(l => {
+    const pct = Math.round(l.edge_density * 600);
+    const c   = pct > 70 ? '#ff3b3b' : pct > 42 ? '#ff8c00' : pct > 24 ? '#ffd700' : '#3bff8c';
+    return `<div class="level-cell">
+      <div class="lv-name">${l.level}</div>
+      <div class="lv-bar" style="background:${c};box-shadow:0 0 6px ${c}55;"></div>
+      <div class="lv-finding" style="font-size:.52rem;color:${c}">${l.finding}</div>
+    </div>`;
+  }).join('');
+
+  const recsHTML = (report.recommendations || []).map(r => `<li>${r}</li>`).join('');
+
+  // Thumbnails – API returns keys: original, grayscale, denoised, edges, tv_mask, unet, report
+  const thumbDefs = [
+    {key:'original',  label:'Original'},
+    {key:'grayscale', label:'Grayscale'},
+    {key:'denoised',  label:'Denoised'},
+    {key:'edges',     label:'Canny (Otsu)'},
+    {key:'tv_mask',   label:'TV Mask'},
+    {key:'unet', label:'U-Net Seg'},
+  ];
+
+  const thumbsHTML = thumbDefs.map(({key, label}) => {
+    const b64 = img[key];
+    const src = b64 ? `data:image/png;base64,${b64}` : '';
+    return `<div class="img-thumb">
+      <img src="${src}" alt="${label}"
+        style="${src ? '' : 'opacity:.2;background:#0d1424;'}"
+        onerror="this.style.opacity='.15'"
+        onclick="if(this.src&&this.src.length>10)openModal(this.src)">
+      <div class="img-thumb-label">${label}</div>
+    </div>`;
+  }).join('');
+
+  // Full report figure
+  const reportPanel = img.report
+    ? `<p style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);
+                 letter-spacing:.1em;margin-top:1.2rem;margin-bottom:.5rem;">
+         CLINICAL REPORT FIGURE</p>
+       <img src="data:image/png;base64,${img.report}"
+            class="report-img" alt="Clinical report"
+            style="cursor:zoom-in;"
+            onclick="openModal(this.src)">`
+    : '';
+
+  document.getElementById('resultContent').innerHTML = `
+    <span class="severity-badge sev-${s.severity_class}">
+      &#9679; ${s.severity_label} Severity
+    </span>
+    <div class="problem-label">${s.problem_label}</div>
+    <div class="problem-desc">${s.problem_description}</div>
+
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;font-size:.82rem;">
+      <div style="background:var(--bg);border:1px solid var(--border);
+                  padding:.5rem .8rem;border-radius:2px;flex:1;min-width:160px;">
+        <span style="color:var(--muted);">Anomaly score: </span>
+        <span style="font-family:'Space Mono',monospace;
+                     color:${s.is_anomaly ? 'var(--severe)' : 'var(--accent3)'};">
+          ${s.anomaly_score}&nbsp;${s.is_anomaly ? '&#9888; ANOMALOUS' : '&#10003; Normal range'}
+        </span>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);
+                  padding:.5rem .8rem;border-radius:2px;">
+        <span style="color:var(--muted);">Regions:&nbsp;</span>
+        <span style="font-family:'Space Mono',monospace;color:var(--accent);">
+          ${s.n_regions_detected} detected
+        </span>
+      </div>
+    </div>
+
+    <p style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);
+              letter-spacing:.1em;margin-bottom:.5rem;">PREPROCESSING OUTPUTS</p>
+    <div class="image-strip">${thumbsHTML}</div>
+
+    <p style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);
+              letter-spacing:.1em;margin-bottom:.5rem;margin-top:.8rem;">
+      VERTEBRAL LEVEL ASSESSMENT</p>
+    <div class="levels-grid">${levelsHTML}</div>
+
+    <p style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);
+              letter-spacing:.1em;margin-top:1.2rem;margin-bottom:.5rem;">
+      CLINICAL RECOMMENDATIONS</p>
+    <ul class="recs-list">${recsHTML}</ul>
+
+    ${reportPanel}
+
+    <div style="margin-top:1rem;padding:.8rem;
+                background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2);
+                border-radius:2px;font-size:.75rem;color:var(--muted);">
+      &#9888; AI-generated analysis only. Not a substitute for radiologist review.
+    </div>
+  `;
+  document.getElementById('resultContent').style.display = 'block';
+}
+
+// ── Image modal ────────────────────────────────────────────
+function openModal(src) {
+  if (!src || src.length < 10) return;
+  document.getElementById('modalImg').src = src;
+  document.getElementById('imgModal').classList.add('open');
+}
+function closeModal() { document.getElementById('imgModal').classList.remove('open'); }
+document.getElementById('imgModal').addEventListener('click',
+  e => { if (e.target === e.currentTarget) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>

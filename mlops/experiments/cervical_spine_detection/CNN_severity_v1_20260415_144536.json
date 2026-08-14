@@ -1,0 +1,24 @@
+{
+  "run_id": "CNN_severity_v1_20260415_144536",
+  "name": "CNN_severity_v1",
+  "start": "2026-04-15T14:45:36.902828",
+  "status": "FINISHED",
+  "params": {},
+  "metrics": {
+    "val_acc": [
+      {
+        "value": 0.94,
+        "ts": 1776244536.902828
+      }
+    ],
+    "test_acc": [
+      {
+        "value": 0.93,
+        "ts": 1776244536.902828
+      }
+    ]
+  },
+  "artifacts": [],
+  "tags": {},
+  "end": "2026-04-15T14:45:36.902828"
+}
