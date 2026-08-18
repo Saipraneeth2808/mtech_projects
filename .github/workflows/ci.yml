@@ -1,0 +1,110 @@
+name: Cervical Spine MRI - CI
+
+on:
+  push:
+    branches:
+      - cervical-spine-project
+
+  pull_request:
+    branches:
+      - cervical-spine-project
+
+jobs:
+
+  test:
+    name: Code Validation and Testing
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ----------------------------------------
+      # 1. Checkout source code
+      # ----------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ----------------------------------------
+      # 2. Setup Python
+      # ----------------------------------------
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # ----------------------------------------
+      # 3. Upgrade pip
+      # ----------------------------------------
+      - name: Upgrade pip
+        run: |
+          python -m pip install --upgrade pip
+
+      # ----------------------------------------
+      # 4. Install dependencies if available
+      # ----------------------------------------
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "requirements.txt not found"
+            echo "Skipping dependency installation"
+          fi
+
+      # ----------------------------------------
+      # 5. Check Python syntax
+      # ----------------------------------------
+      - name: Python syntax validation
+        run: |
+          python -m compileall detection models preprocessing utils website
+
+      # ----------------------------------------
+      # 6. Validate project structure
+      # ----------------------------------------
+      - name: Validate project structure
+        run: |
+          test -d detection
+          test -d models
+          test -d preprocessing
+          test -d utils
+          test -d website
+          test -d mlops
+
+          echo "Project structure is valid"
+
+      # ----------------------------------------
+      # 7. Check important Python files
+      # ----------------------------------------
+      - name: Check application files
+        run: |
+          test -f detection/detector.py
+          test -f models/architectures.py
+          test -f models/train.py
+          test -f website/app.py
+          test -f run_pipeline.py
+
+          echo "Required application files found"
+
+      # ----------------------------------------
+      # 8. Run tests if tests directory exists
+      # ----------------------------------------
+      - name: Run unit tests
+        run: |
+          if [ -d tests ]; then
+            pytest tests -v
+          else
+            echo "No tests directory found"
+            echo "Unit tests skipped"
+          fi
+
+      # ----------------------------------------
+      # 9. CI completed
+      # ----------------------------------------
+      - name: CI completed
+        run: |
+          echo "=========================================="
+          echo "CERVICAL SPINE MRI CI SUCCESSFUL"
+          echo "=========================================="
+          echo "Code validation      : PASSED"
+          echo "Project structure    : PASSED"
+          echo "Python syntax        : PASSED"
+          echo "Unit tests           : COMPLETED"
