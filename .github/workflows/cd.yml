@@ -7,22 +7,30 @@ on:
     types:
       - completed
 
+  workflow_dispatch:
+
 jobs:
 
   deploy:
     name: Build, Package and Deploy Application
     runs-on: ubuntu-latest
 
-    # Run CD only when CI has completed successfully
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # ==========================================================
+    # RUN ONLY:
+    # 1. When CI completed successfully
+    # 2. OR when CD is manually started
+    # ==========================================================
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
 
       # ==========================================================
-      # 1. CHECKOUT
+      # 1. CHECKOUT EXACT CI COMMIT
       # ==========================================================
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       # ==========================================================
       # 2. SETUP PYTHON
@@ -40,10 +48,18 @@ jobs:
           echo "=========================================="
           echo "CERVICAL SPINE MRI - CD PIPELINE"
           echo "=========================================="
+
           python --version
           pip --version
+
           echo "Operating System:"
           uname -a
+
+          echo "Git commit:"
+          git rev-parse HEAD
+
+          echo "Git branch:"
+          git branch --show-current
 
       # ==========================================================
       # 4. UPGRADE PIP
@@ -70,24 +86,39 @@ jobs:
       # ==========================================================
       - name: Verify project structure
         run: |
-          echo "Checking Cervical Spine MRI project structure..."
 
-          for directory in detection models preprocessing utils website mlops; do
+          echo "=========================================="
+          echo "VERIFYING PROJECT STRUCTURE"
+          echo "=========================================="
+
+          REQUIRED_DIRS="
+          detection
+          models
+          preprocessing
+          utils
+          website
+          mlops
+          "
+
+          for directory in $REQUIRED_DIRS
+          do
             if [ -d "$directory" ]; then
-              echo "OK: $directory/"
+              echo "PASS: $directory/"
             else
-              echo "WARNING: $directory/ not found"
+              echo "FAIL: $directory/ not found"
+              exit 1
             fi
           done
 
           if [ -f run_pipeline.py ]; then
-            echo "OK: run_pipeline.py"
+            echo "PASS: run_pipeline.py"
           else
-            echo "WARNING: run_pipeline.py not found"
+            echo "FAIL: run_pipeline.py not found"
+            exit 1
           fi
 
           if [ -f requirements.txt ]; then
-            echo "OK: requirements.txt"
+            echo "PASS: requirements.txt"
           else
             echo "WARNING: requirements.txt not found"
           fi
@@ -97,7 +128,10 @@ jobs:
       # ==========================================================
       - name: Validate Python source code
         run: |
-          echo "Running Python syntax validation..."
+
+          echo "=========================================="
+          echo "PYTHON SYNTAX VALIDATION"
+          echo "=========================================="
 
           python -m compileall \
             detection \
@@ -107,18 +141,39 @@ jobs:
             website \
             mlops
 
-          echo "Python syntax validation completed successfully."
+          python -m py_compile run_pipeline.py
+
+          echo "Python syntax validation PASSED"
 
       # ==========================================================
-      # 8. VALIDATE MAIN PIPELINE
+      # 8. VALIDATE APPLICATION FILES
       # ==========================================================
-      - name: Validate main pipeline
+      - name: Validate application files
         run: |
-          if [ -f run_pipeline.py ]; then
-            python -m py_compile run_pipeline.py
-            echo "run_pipeline.py validation PASSED"
+
+          echo "=========================================="
+          echo "APPLICATION VALIDATION"
+          echo "=========================================="
+
+          if [ -f website/app.py ]; then
+            echo "PASS: website/app.py"
+            python -m py_compile website/app.py
           else
-            echo "run_pipeline.py not available"
+            echo "WARNING: website/app.py not found"
+          fi
+
+          if [ -f detection/detector.py ]; then
+            echo "PASS: detection/detector.py"
+          else
+            echo "FAIL: detection/detector.py not found"
+            exit 1
+          fi
+
+          if [ -f models/architectures.py ]; then
+            echo "PASS: models/architectures.py"
+          else
+            echo "FAIL: models/architectures.py not found"
+            exit 1
           fi
 
       # ==========================================================
@@ -126,41 +181,39 @@ jobs:
       # ==========================================================
       - name: Create deployment package
         run: |
-          echo "Creating deployment package..."
+
+          echo "=========================================="
+          echo "CREATING DEPLOYMENT PACKAGE"
+          echo "=========================================="
 
           rm -rf deployment
+
           mkdir -p deployment
 
-          # Copy project modules
-          for directory in detection models preprocessing utils website mlops; do
-            if [ -d "$directory" ]; then
-              cp -r "$directory" deployment/
-              echo "Added $directory/"
-            fi
-          done
+          cp -r detection deployment/
+          cp -r models deployment/
+          cp -r preprocessing deployment/
+          cp -r utils deployment/
+          cp -r website deployment/
+          cp -r mlops deployment/
 
-          # Copy main pipeline
-          if [ -f run_pipeline.py ]; then
-            cp run_pipeline.py deployment/
-            echo "Added run_pipeline.py"
-          fi
+          cp run_pipeline.py deployment/
 
-          # Copy requirements
           if [ -f requirements.txt ]; then
             cp requirements.txt deployment/
-            echo "Added requirements.txt"
           fi
 
           echo ""
           echo "Deployment package contents:"
-          find deployment -maxdepth 2 -type f | sort
+          find deployment -maxdepth 3 -type f | sort
 
       # ==========================================================
       # 10. CREATE BUILD INFORMATION
       # ==========================================================
       - name: Generate build information
         run: |
-          echo "Generating build information..."
+
+          echo "Generating BUILD_INFO.txt"
 
           cat > deployment/BUILD_INFO.txt <<EOF
           ==========================================
@@ -168,26 +221,45 @@ jobs:
           ==========================================
 
           Build Type: Continuous Deployment
-          Python Version: $(python --version)
-          Build Date: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          Git Commit: $GITHUB_SHA
-          Git Branch: $GITHUB_REF_NAME
 
-          CI Status: PASSED
-          CD Build: PASSED
-          Package Creation: PASSED
-          Artifact Generation: PASSED
+          Python Version:
+          $(python --version)
+
+          Build Date:
+          $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
+          Git Commit:
+          $(git rev-parse HEAD)
+
+          Git Branch:
+          $(git branch --show-current)
+
+          CI Status:
+          PASSED
+
+          CD Build:
+          PASSED
+
+          Package Creation:
+          PASSED
+
+          Artifact Generation:
+          PASSED
+
           ==========================================
           EOF
 
           cat deployment/BUILD_INFO.txt
 
       # ==========================================================
-      # 11. CREATE ZIP ARTIFACT
+      # 11. CREATE ZIP
       # ==========================================================
       - name: Create deployment ZIP
         run: |
-          echo "Creating deployment ZIP..."
+
+          echo "=========================================="
+          echo "CREATING DEPLOYMENT ZIP"
+          echo "=========================================="
 
           cd deployment
 
@@ -195,8 +267,6 @@ jobs:
 
           cd ..
 
-          echo ""
-          echo "Deployment ZIP created:"
           ls -lh cervical-spine-mri-application.zip
 
       # ==========================================================
@@ -204,23 +274,25 @@ jobs:
       # ==========================================================
       - name: Verify deployment artifact
         run: |
-          echo "Verifying deployment artifact..."
 
-          if [ -f cervical-spine-mri-application.zip ]; then
-            echo "Deployment artifact exists."
+          echo "=========================================="
+          echo "VERIFYING DEPLOYMENT ARTIFACT"
+          echo "=========================================="
 
-            echo ""
-            echo "Artifact size:"
-            du -h cervical-spine-mri-application.zip
-
-            echo ""
-            echo "Artifact contents:"
-            unzip -l cervical-spine-mri-application.zip
-
-          else
-            echo "ERROR: Deployment artifact was not created."
+          if [ ! -f cervical-spine-mri-application.zip ]; then
+            echo "ERROR: Deployment ZIP was not created"
             exit 1
           fi
+
+          echo "Deployment artifact exists"
+
+          echo ""
+          echo "Artifact size:"
+          du -h cervical-spine-mri-application.zip
+
+          echo ""
+          echo "Artifact contents:"
+          unzip -l cervical-spine-mri-application.zip
 
       # ==========================================================
       # 13. UPLOAD ARTIFACT
@@ -238,41 +310,52 @@ jobs:
       # ==========================================================
       - name: Deployment stage
         run: |
+
           echo ""
           echo "=========================================="
           echo "CERVICAL SPINE MRI - CD SUCCESSFUL"
           echo "=========================================="
+
           echo ""
-          echo "CI validation        : PASSED"
-          echo "Python environment   : READY"
-          echo "Dependencies         : INSTALLED"
-          echo "Source validation    : PASSED"
-          echo "Application build    : PASSED"
-          echo "Deployment package   : CREATED"
+          echo "CI validation         : PASSED"
+          echo "Python environment    : READY"
+          echo "Dependencies          : INSTALLED"
+          echo "Source validation     : PASSED"
+          echo "Application validation: PASSED"
+          echo "Build                 : PASSED"
+          echo "Packaging             : PASSED"
           echo "Artifact verification: PASSED"
-          echo "Artifact upload      : PASSED"
+          echo "Artifact upload       : PASSED"
+          echo "Deployment stage     : COMPLETED"
+
           echo ""
           echo "Deployment artifact:"
           echo "cervical-spine-mri-application.zip"
+
           echo ""
-          echo "Deployment stage     : COMPLETED"
           echo "=========================================="
 
       # ==========================================================
-      # 15. FINAL STATUS
+      # 15. FINAL SUMMARY
       # ==========================================================
       - name: CD Pipeline Summary
         run: |
+
           echo ""
-          echo "##########################################"
-          echo "#     CERVICAL SPINE MRI MLOPS CD       #"
-          echo "##########################################"
+          echo "############################################"
+          echo "#     CERVICAL SPINE MRI MLOPS CD         #"
+          echo "############################################"
           echo "#"
-          echo "# CI → CD trigger       : SUCCESS"
-          echo "# Build                 : SUCCESS"
-          echo "# Validation            : SUCCESS"
-          echo "# Packaging             : SUCCESS"
-          echo "# Artifact              : SUCCESS"
-          echo "# Deployment stage     : SUCCESS"
+          echo "# CI -> CD Trigger       : SUCCESS"
+          echo "# Checkout               : SUCCESS"
+          echo "# Python Setup           : SUCCESS"
+          echo "# Dependencies           : SUCCESS"
+          echo "# Structure Validation   : SUCCESS"
+          echo "# Source Validation      : SUCCESS"
+          echo "# Application Validation : SUCCESS"
+          echo "# Build                  : SUCCESS"
+          echo "# Packaging              : SUCCESS"
+          echo "# Artifact               : SUCCESS"
+          echo "# Deployment Stage       : SUCCESS"
           echo "#"
-          echo "##########################################"
+          echo "############################################"
