@@ -14,12 +14,6 @@ jobs:
   deploy:
     name: Build, Package and Deploy Application
     runs-on: ubuntu-latest
-
-    # ==========================================================
-    # RUN ONLY:
-    # 1. When CI completed successfully
-    # 2. OR when CD is manually started
-    # ==========================================================
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
