@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project/mlops/mlruns/251916258131324004/cc40f9bc203049028e6b8dc8378f1f6d/artifacts
+end_time: 1788413083307
+entry_point_name: ''
+experiment_id: '251916258131324004'
+lifecycle_stage: active
+run_id: cc40f9bc203049028e6b8dc8378f1f6d
+run_name: vgg-evaluation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1788413083194
+status: 3
+tags: []
+user_id: Manoj Grandhi

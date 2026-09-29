@@ -1,0 +1,716 @@
+{
+  "timestamp": "2026-09-02T11:39:44.311395",
+  "dataset": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data",
+  "status": "PASSED",
+  "total_images": 1137,
+  "valid_images": 1137,
+  "invalid_images": 0,
+  "duplicate_images": 176,
+  "invalid_files": [],
+  "duplicates": [
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00001_1.2.840.113619.2.312.6945.3553630.14527.1661222098.71.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00001_1.2.840.113619.2.312.6945.3553630.14527.1661222098.71.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00002_1.2.840.113619.2.312.6945.3553630.14527.1661222098.80.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00002_1.2.840.113619.2.312.6945.3553630.14527.1661222098.80.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00003_1.2.840.113619.2.312.6945.3553630.14527.1661222098.81.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00003_1.2.840.113619.2.312.6945.3553630.14527.1661222098.81.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00004_1.2.840.113619.2.312.6945.3553630.14527.1661222098.82.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00004_1.2.840.113619.2.312.6945.3553630.14527.1661222098.82.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00005_1.2.840.113619.2.312.6945.3553630.14527.1661222098.83.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00005_1.2.840.113619.2.312.6945.3553630.14527.1661222098.83.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00006_1.2.840.113619.2.312.6945.3553630.14527.1661222098.84.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00006_1.2.840.113619.2.312.6945.3553630.14527.1661222098.84.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00007_1.2.840.113619.2.312.6945.3553630.14527.1661222098.85.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00007_1.2.840.113619.2.312.6945.3553630.14527.1661222098.85.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00008_1.2.840.113619.2.312.6945.3553630.14527.1661222098.72.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00008_1.2.840.113619.2.312.6945.3553630.14527.1661222098.72.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00009_1.2.840.113619.2.312.6945.3553630.14527.1661222098.73.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00009_1.2.840.113619.2.312.6945.3553630.14527.1661222098.73.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00010_1.2.840.113619.2.312.6945.3553630.14527.1661222098.74.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00010_1.2.840.113619.2.312.6945.3553630.14527.1661222098.74.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00011_1.2.840.113619.2.312.6945.3553630.14527.1661222098.75.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00011_1.2.840.113619.2.312.6945.3553630.14527.1661222098.75.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00012_1.2.840.113619.2.312.6945.3553630.14527.1661222098.76.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00012_1.2.840.113619.2.312.6945.3553630.14527.1661222098.76.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00013_1.2.840.113619.2.312.6945.3553630.14527.1661222098.77.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00013_1.2.840.113619.2.312.6945.3553630.14527.1661222098.77.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00014_1.2.840.113619.2.312.6945.3553630.14527.1661222098.78.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00014_1.2.840.113619.2.312.6945.3553630.14527.1661222098.78.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\63\\00015_1.2.840.113619.2.312.6945.3553630.14527.1661222098.79.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\40\\00015_1.2.840.113619.2.312.6945.3553630.14527.1661222098.79.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00000.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00000.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00001.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00001.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00002.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00002.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00003.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00003.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00004.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00004.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00005.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00005.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00006.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00006.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00007.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00007.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00008.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00008.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00009.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00009.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00010.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00010.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00011.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00011.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\67\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00012.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\44\\00002_1.3.46.670589.11.33392.5.20.1.1.20056.2017012003335007000_00012.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00001_1.2.840.113619.2.312.6945.3553630.14626.1662518827.668.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00001_1.2.840.113619.2.312.6945.3553630.14626.1662518827.668.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00002_1.2.840.113619.2.312.6945.3553630.14626.1662518827.677.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00002_1.2.840.113619.2.312.6945.3553630.14626.1662518827.677.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00003_1.2.840.113619.2.312.6945.3553630.14626.1662518827.678.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00003_1.2.840.113619.2.312.6945.3553630.14626.1662518827.678.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00004_1.2.840.113619.2.312.6945.3553630.14626.1662518827.679.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00004_1.2.840.113619.2.312.6945.3553630.14626.1662518827.679.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00005_1.2.840.113619.2.312.6945.3553630.14626.1662518827.680.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00005_1.2.840.113619.2.312.6945.3553630.14626.1662518827.680.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00006_1.2.840.113619.2.312.6945.3553630.14626.1662518827.681.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00006_1.2.840.113619.2.312.6945.3553630.14626.1662518827.681.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00007_1.2.840.113619.2.312.6945.3553630.14626.1662518827.682.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00007_1.2.840.113619.2.312.6945.3553630.14626.1662518827.682.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00008_1.2.840.113619.2.312.6945.3553630.14626.1662518827.669.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00008_1.2.840.113619.2.312.6945.3553630.14626.1662518827.669.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00009_1.2.840.113619.2.312.6945.3553630.14626.1662518827.670.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00009_1.2.840.113619.2.312.6945.3553630.14626.1662518827.670.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00010_1.2.840.113619.2.312.6945.3553630.14626.1662518827.671.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00010_1.2.840.113619.2.312.6945.3553630.14626.1662518827.671.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00011_1.2.840.113619.2.312.6945.3553630.14626.1662518827.672.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00011_1.2.840.113619.2.312.6945.3553630.14626.1662518827.672.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00012_1.2.840.113619.2.312.6945.3553630.14626.1662518827.673.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00012_1.2.840.113619.2.312.6945.3553630.14626.1662518827.673.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00013_1.2.840.113619.2.312.6945.3553630.14626.1662518827.674.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00013_1.2.840.113619.2.312.6945.3553630.14626.1662518827.674.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00014_1.2.840.113619.2.312.6945.3553630.14626.1662518827.675.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00014_1.2.840.113619.2.312.6945.3553630.14626.1662518827.675.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\68\\00015_1.2.840.113619.2.312.6945.3553630.14626.1662518827.676.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\52\\00015_1.2.840.113619.2.312.6945.3553630.14626.1662518827.676.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00001_1.2.840.113619.2.312.6945.3553630.14646.1664029844.261.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00001_1.2.840.113619.2.312.6945.3553630.14646.1664029844.261.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00002_1.2.840.113619.2.312.6945.3553630.14646.1664029844.270.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00002_1.2.840.113619.2.312.6945.3553630.14646.1664029844.270.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00003_1.2.840.113619.2.312.6945.3553630.14646.1664029844.271.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00003_1.2.840.113619.2.312.6945.3553630.14646.1664029844.271.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00004_1.2.840.113619.2.312.6945.3553630.14646.1664029844.272.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00004_1.2.840.113619.2.312.6945.3553630.14646.1664029844.272.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00005_1.2.840.113619.2.312.6945.3553630.14646.1664029844.273.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00005_1.2.840.113619.2.312.6945.3553630.14646.1664029844.273.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00006_1.2.840.113619.2.312.6945.3553630.14646.1664029844.262.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00006_1.2.840.113619.2.312.6945.3553630.14646.1664029844.262.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00007_1.2.840.113619.2.312.6945.3553630.14646.1664029844.263.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00007_1.2.840.113619.2.312.6945.3553630.14646.1664029844.263.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00008_1.2.840.113619.2.312.6945.3553630.14646.1664029844.264.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00008_1.2.840.113619.2.312.6945.3553630.14646.1664029844.264.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00009_1.2.840.113619.2.312.6945.3553630.14646.1664029844.265.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00009_1.2.840.113619.2.312.6945.3553630.14646.1664029844.265.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00010_1.2.840.113619.2.312.6945.3553630.14646.1664029844.266.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00010_1.2.840.113619.2.312.6945.3553630.14646.1664029844.266.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00011_1.2.840.113619.2.312.6945.3553630.14646.1664029844.267.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00011_1.2.840.113619.2.312.6945.3553630.14646.1664029844.267.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00012_1.2.840.113619.2.312.6945.3553630.14646.1664029844.268.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00012_1.2.840.113619.2.312.6945.3553630.14646.1664029844.268.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\69\\00013_1.2.840.113619.2.312.6945.3553630.14646.1664029844.269.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\59\\00013_1.2.840.113619.2.312.6945.3553630.14646.1664029844.269.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00001_1.2.840.113619.2.312.6945.3553630.16714.1637025095.68.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00001_1.2.840.113619.2.312.6945.3553630.16714.1637025095.68.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00002_1.2.840.113619.2.312.6945.3553630.16714.1637025095.77.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00002_1.2.840.113619.2.312.6945.3553630.16714.1637025095.77.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00003_1.2.840.113619.2.312.6945.3553630.16714.1637025095.78.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00003_1.2.840.113619.2.312.6945.3553630.16714.1637025095.78.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00004_1.2.840.113619.2.312.6945.3553630.16714.1637025095.79.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00004_1.2.840.113619.2.312.6945.3553630.16714.1637025095.79.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00005_1.2.840.113619.2.312.6945.3553630.16714.1637025095.80.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00005_1.2.840.113619.2.312.6945.3553630.16714.1637025095.80.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00006_1.2.840.113619.2.312.6945.3553630.16714.1637025095.81.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00006_1.2.840.113619.2.312.6945.3553630.16714.1637025095.81.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00007_1.2.840.113619.2.312.6945.3553630.16714.1637025095.82.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00007_1.2.840.113619.2.312.6945.3553630.16714.1637025095.82.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00008_1.2.840.113619.2.312.6945.3553630.16714.1637025095.69.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00008_1.2.840.113619.2.312.6945.3553630.16714.1637025095.69.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00009_1.2.840.113619.2.312.6945.3553630.16714.1637025095.70.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00009_1.2.840.113619.2.312.6945.3553630.16714.1637025095.70.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00010_1.2.840.113619.2.312.6945.3553630.16714.1637025095.71.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00010_1.2.840.113619.2.312.6945.3553630.16714.1637025095.71.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00011_1.2.840.113619.2.312.6945.3553630.16714.1637025095.72.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00011_1.2.840.113619.2.312.6945.3553630.16714.1637025095.72.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00012_1.2.840.113619.2.312.6945.3553630.16714.1637025095.73.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00012_1.2.840.113619.2.312.6945.3553630.16714.1637025095.73.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00013_1.2.840.113619.2.312.6945.3553630.16714.1637025095.74.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00013_1.2.840.113619.2.312.6945.3553630.16714.1637025095.74.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00014_1.2.840.113619.2.312.6945.3553630.16714.1637025095.75.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00014_1.2.840.113619.2.312.6945.3553630.16714.1637025095.75.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\70\\00015_1.2.840.113619.2.312.6945.3553630.16714.1637025095.76.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\10\\00015_1.2.840.113619.2.312.6945.3553630.16714.1637025095.76.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00001_1.2.840.113619.2.312.6945.3553630.14913.1626624068.349.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00001_1.2.840.113619.2.312.6945.3553630.14913.1626624068.349.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00002_1.2.840.113619.2.312.6945.3553630.14913.1626624068.358.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00002_1.2.840.113619.2.312.6945.3553630.14913.1626624068.358.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00003_1.2.840.113619.2.312.6945.3553630.14913.1626624068.359.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00003_1.2.840.113619.2.312.6945.3553630.14913.1626624068.359.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00004_1.2.840.113619.2.312.6945.3553630.14913.1626624068.360.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00004_1.2.840.113619.2.312.6945.3553630.14913.1626624068.360.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00005_1.2.840.113619.2.312.6945.3553630.14913.1626624068.361.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00005_1.2.840.113619.2.312.6945.3553630.14913.1626624068.361.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00006_1.2.840.113619.2.312.6945.3553630.14913.1626624068.362.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00006_1.2.840.113619.2.312.6945.3553630.14913.1626624068.362.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00007_1.2.840.113619.2.312.6945.3553630.14913.1626624068.363.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00007_1.2.840.113619.2.312.6945.3553630.14913.1626624068.363.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00008_1.2.840.113619.2.312.6945.3553630.14913.1626624068.364.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00008_1.2.840.113619.2.312.6945.3553630.14913.1626624068.364.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00009_1.2.840.113619.2.312.6945.3553630.14913.1626624068.365.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00009_1.2.840.113619.2.312.6945.3553630.14913.1626624068.365.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00010_1.2.840.113619.2.312.6945.3553630.14913.1626624068.350.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00010_1.2.840.113619.2.312.6945.3553630.14913.1626624068.350.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00011_1.2.840.113619.2.312.6945.3553630.14913.1626624068.351.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00011_1.2.840.113619.2.312.6945.3553630.14913.1626624068.351.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00012_1.2.840.113619.2.312.6945.3553630.14913.1626624068.352.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00012_1.2.840.113619.2.312.6945.3553630.14913.1626624068.352.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00013_1.2.840.113619.2.312.6945.3553630.14913.1626624068.353.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00013_1.2.840.113619.2.312.6945.3553630.14913.1626624068.353.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00014_1.2.840.113619.2.312.6945.3553630.14913.1626624068.354.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00014_1.2.840.113619.2.312.6945.3553630.14913.1626624068.354.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00015_1.2.840.113619.2.312.6945.3553630.14913.1626624068.355.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00015_1.2.840.113619.2.312.6945.3553630.14913.1626624068.355.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00016_1.2.840.113619.2.312.6945.3553630.14913.1626624068.356.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00016_1.2.840.113619.2.312.6945.3553630.14913.1626624068.356.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\71\\00017_1.2.840.113619.2.312.6945.3553630.14913.1626624068.357.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\25\\00017_1.2.840.113619.2.312.6945.3553630.14913.1626624068.357.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00001_1.2.840.113619.2.312.6945.3553630.13872.1598262269.377.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00001_1.2.840.113619.2.312.6945.3553630.13872.1598262269.377.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00002_1.2.840.113619.2.312.6945.3553630.13872.1598262269.386.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00002_1.2.840.113619.2.312.6945.3553630.13872.1598262269.386.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00003_1.2.840.113619.2.312.6945.3553630.13872.1598262269.387.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00003_1.2.840.113619.2.312.6945.3553630.13872.1598262269.387.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00004_1.2.840.113619.2.312.6945.3553630.13872.1598262269.388.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00004_1.2.840.113619.2.312.6945.3553630.13872.1598262269.388.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00005_1.2.840.113619.2.312.6945.3553630.13872.1598262269.389.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00005_1.2.840.113619.2.312.6945.3553630.13872.1598262269.389.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00006_1.2.840.113619.2.312.6945.3553630.13872.1598262269.390.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00006_1.2.840.113619.2.312.6945.3553630.13872.1598262269.390.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00007_1.2.840.113619.2.312.6945.3553630.13872.1598262269.391.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00007_1.2.840.113619.2.312.6945.3553630.13872.1598262269.391.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00008_1.2.840.113619.2.312.6945.3553630.13872.1598262269.392.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00008_1.2.840.113619.2.312.6945.3553630.13872.1598262269.392.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00009_1.2.840.113619.2.312.6945.3553630.13872.1598262269.393.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00009_1.2.840.113619.2.312.6945.3553630.13872.1598262269.393.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00010_1.2.840.113619.2.312.6945.3553630.13872.1598262269.378.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00010_1.2.840.113619.2.312.6945.3553630.13872.1598262269.378.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00011_1.2.840.113619.2.312.6945.3553630.13872.1598262269.379.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00011_1.2.840.113619.2.312.6945.3553630.13872.1598262269.379.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00012_1.2.840.113619.2.312.6945.3553630.13872.1598262269.380.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00012_1.2.840.113619.2.312.6945.3553630.13872.1598262269.380.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00013_1.2.840.113619.2.312.6945.3553630.13872.1598262269.381.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00013_1.2.840.113619.2.312.6945.3553630.13872.1598262269.381.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00014_1.2.840.113619.2.312.6945.3553630.13872.1598262269.382.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00014_1.2.840.113619.2.312.6945.3553630.13872.1598262269.382.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00015_1.2.840.113619.2.312.6945.3553630.13872.1598262269.383.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00015_1.2.840.113619.2.312.6945.3553630.13872.1598262269.383.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00016_1.2.840.113619.2.312.6945.3553630.13872.1598262269.384.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00016_1.2.840.113619.2.312.6945.3553630.13872.1598262269.384.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\72\\00017_1.2.840.113619.2.312.6945.3553630.13872.1598262269.385.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\33\\00017_1.2.840.113619.2.312.6945.3553630.13872.1598262269.385.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00001_1.2.840.113619.2.312.6945.3553630.14904.1635129638.213.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00001_1.2.840.113619.2.312.6945.3553630.14904.1635129638.213.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00002_1.2.840.113619.2.312.6945.3553630.14904.1635129638.222.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00002_1.2.840.113619.2.312.6945.3553630.14904.1635129638.222.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00003_1.2.840.113619.2.312.6945.3553630.14904.1635129638.223.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00003_1.2.840.113619.2.312.6945.3553630.14904.1635129638.223.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00004_1.2.840.113619.2.312.6945.3553630.14904.1635129638.224.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00004_1.2.840.113619.2.312.6945.3553630.14904.1635129638.224.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00005_1.2.840.113619.2.312.6945.3553630.14904.1635129638.225.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00005_1.2.840.113619.2.312.6945.3553630.14904.1635129638.225.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00006_1.2.840.113619.2.312.6945.3553630.14904.1635129638.214.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00006_1.2.840.113619.2.312.6945.3553630.14904.1635129638.214.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00007_1.2.840.113619.2.312.6945.3553630.14904.1635129638.215.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00007_1.2.840.113619.2.312.6945.3553630.14904.1635129638.215.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00008_1.2.840.113619.2.312.6945.3553630.14904.1635129638.216.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00008_1.2.840.113619.2.312.6945.3553630.14904.1635129638.216.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00009_1.2.840.113619.2.312.6945.3553630.14904.1635129638.217.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00009_1.2.840.113619.2.312.6945.3553630.14904.1635129638.217.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00010_1.2.840.113619.2.312.6945.3553630.14904.1635129638.218.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00010_1.2.840.113619.2.312.6945.3553630.14904.1635129638.218.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00011_1.2.840.113619.2.312.6945.3553630.14904.1635129638.219.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00011_1.2.840.113619.2.312.6945.3553630.14904.1635129638.219.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00012_1.2.840.113619.2.312.6945.3553630.14904.1635129638.220.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00012_1.2.840.113619.2.312.6945.3553630.14904.1635129638.220.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\73\\00013_1.2.840.113619.2.312.6945.3553630.14904.1635129638.221.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\12\\00013_1.2.840.113619.2.312.6945.3553630.14904.1635129638.221.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00001_1.2.840.113619.2.312.6945.3553630.15148.1642383667.665.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00001_1.2.840.113619.2.312.6945.3553630.15148.1642383667.665.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00002_1.2.840.113619.2.312.6945.3553630.15148.1642383667.674.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00002_1.2.840.113619.2.312.6945.3553630.15148.1642383667.674.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00003_1.2.840.113619.2.312.6945.3553630.15148.1642383667.675.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00003_1.2.840.113619.2.312.6945.3553630.15148.1642383667.675.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00004_1.2.840.113619.2.312.6945.3553630.15148.1642383667.676.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00004_1.2.840.113619.2.312.6945.3553630.15148.1642383667.676.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00005_1.2.840.113619.2.312.6945.3553630.15148.1642383667.677.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00005_1.2.840.113619.2.312.6945.3553630.15148.1642383667.677.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00006_1.2.840.113619.2.312.6945.3553630.15148.1642383667.678.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00006_1.2.840.113619.2.312.6945.3553630.15148.1642383667.678.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00007_1.2.840.113619.2.312.6945.3553630.15148.1642383667.679.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00007_1.2.840.113619.2.312.6945.3553630.15148.1642383667.679.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00008_1.2.840.113619.2.312.6945.3553630.15148.1642383667.666.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00008_1.2.840.113619.2.312.6945.3553630.15148.1642383667.666.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00009_1.2.840.113619.2.312.6945.3553630.15148.1642383667.667.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00009_1.2.840.113619.2.312.6945.3553630.15148.1642383667.667.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00010_1.2.840.113619.2.312.6945.3553630.15148.1642383667.668.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00010_1.2.840.113619.2.312.6945.3553630.15148.1642383667.668.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00011_1.2.840.113619.2.312.6945.3553630.15148.1642383667.669.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00011_1.2.840.113619.2.312.6945.3553630.15148.1642383667.669.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00012_1.2.840.113619.2.312.6945.3553630.15148.1642383667.670.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00012_1.2.840.113619.2.312.6945.3553630.15148.1642383667.670.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00013_1.2.840.113619.2.312.6945.3553630.15148.1642383667.671.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00013_1.2.840.113619.2.312.6945.3553630.15148.1642383667.671.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00014_1.2.840.113619.2.312.6945.3553630.15148.1642383667.672.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00014_1.2.840.113619.2.312.6945.3553630.15148.1642383667.672.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\74\\00015_1.2.840.113619.2.312.6945.3553630.15148.1642383667.673.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\2\\00015_1.2.840.113619.2.312.6945.3553630.15148.1642383667.673.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00026_1.2.840.113619.2.312.6945.3553630.15825.1662597845.840.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00026_1.2.840.113619.2.312.6945.3553630.15825.1662597845.840.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00027_1.2.840.113619.2.312.6945.3553630.15825.1662597845.849.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00027_1.2.840.113619.2.312.6945.3553630.15825.1662597845.849.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00028_1.2.840.113619.2.312.6945.3553630.15825.1662597845.850.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00028_1.2.840.113619.2.312.6945.3553630.15825.1662597845.850.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00029_1.2.840.113619.2.312.6945.3553630.15825.1662597845.851.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00029_1.2.840.113619.2.312.6945.3553630.15825.1662597845.851.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00030_1.2.840.113619.2.312.6945.3553630.15825.1662597845.852.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00030_1.2.840.113619.2.312.6945.3553630.15825.1662597845.852.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00031_1.2.840.113619.2.312.6945.3553630.15825.1662597845.853.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00031_1.2.840.113619.2.312.6945.3553630.15825.1662597845.853.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00032_1.2.840.113619.2.312.6945.3553630.15825.1662597845.854.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00032_1.2.840.113619.2.312.6945.3553630.15825.1662597845.854.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00033_1.2.840.113619.2.312.6945.3553630.15825.1662597845.841.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00033_1.2.840.113619.2.312.6945.3553630.15825.1662597845.841.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00034_1.2.840.113619.2.312.6945.3553630.15825.1662597845.842.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00034_1.2.840.113619.2.312.6945.3553630.15825.1662597845.842.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00035_1.2.840.113619.2.312.6945.3553630.15825.1662597845.843.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00035_1.2.840.113619.2.312.6945.3553630.15825.1662597845.843.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00036_1.2.840.113619.2.312.6945.3553630.15825.1662597845.844.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00036_1.2.840.113619.2.312.6945.3553630.15825.1662597845.844.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00037_1.2.840.113619.2.312.6945.3553630.15825.1662597845.845.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00037_1.2.840.113619.2.312.6945.3553630.15825.1662597845.845.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00038_1.2.840.113619.2.312.6945.3553630.15825.1662597845.846.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00038_1.2.840.113619.2.312.6945.3553630.15825.1662597845.846.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00039_1.2.840.113619.2.312.6945.3553630.15825.1662597845.847.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00039_1.2.840.113619.2.312.6945.3553630.15825.1662597845.847.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\75\\00040_1.2.840.113619.2.312.6945.3553630.15825.1662597845.848.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\61\\00040_1.2.840.113619.2.312.6945.3553630.15825.1662597845.848.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00001_1.2.840.113619.2.312.6945.3553630.14935.1651630485.730.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00001_1.2.840.113619.2.312.6945.3553630.14935.1651630485.730.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00002_1.2.840.113619.2.312.6945.3553630.14935.1651630485.739.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00002_1.2.840.113619.2.312.6945.3553630.14935.1651630485.739.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00003_1.2.840.113619.2.312.6945.3553630.14935.1651630485.740.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00003_1.2.840.113619.2.312.6945.3553630.14935.1651630485.740.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00004_1.2.840.113619.2.312.6945.3553630.14935.1651630485.741.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00004_1.2.840.113619.2.312.6945.3553630.14935.1651630485.741.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00005_1.2.840.113619.2.312.6945.3553630.14935.1651630485.742.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00005_1.2.840.113619.2.312.6945.3553630.14935.1651630485.742.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00006_1.2.840.113619.2.312.6945.3553630.14935.1651630485.743.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00006_1.2.840.113619.2.312.6945.3553630.14935.1651630485.743.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00007_1.2.840.113619.2.312.6945.3553630.14935.1651630485.744.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00007_1.2.840.113619.2.312.6945.3553630.14935.1651630485.744.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00008_1.2.840.113619.2.312.6945.3553630.14935.1651630485.731.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00008_1.2.840.113619.2.312.6945.3553630.14935.1651630485.731.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00009_1.2.840.113619.2.312.6945.3553630.14935.1651630485.732.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00009_1.2.840.113619.2.312.6945.3553630.14935.1651630485.732.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00010_1.2.840.113619.2.312.6945.3553630.14935.1651630485.733.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00010_1.2.840.113619.2.312.6945.3553630.14935.1651630485.733.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00011_1.2.840.113619.2.312.6945.3553630.14935.1651630485.734.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00011_1.2.840.113619.2.312.6945.3553630.14935.1651630485.734.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00012_1.2.840.113619.2.312.6945.3553630.14935.1651630485.735.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00012_1.2.840.113619.2.312.6945.3553630.14935.1651630485.735.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00013_1.2.840.113619.2.312.6945.3553630.14935.1651630485.736.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00013_1.2.840.113619.2.312.6945.3553630.14935.1651630485.736.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00014_1.2.840.113619.2.312.6945.3553630.14935.1651630485.737.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00014_1.2.840.113619.2.312.6945.3553630.14935.1651630485.737.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\76\\00015_1.2.840.113619.2.312.6945.3553630.14935.1651630485.738.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\36\\00015_1.2.840.113619.2.312.6945.3553630.14935.1651630485.738.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00001_1.2.840.113619.2.312.6945.3553630.19001.1630202961.574.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00001_1.2.840.113619.2.312.6945.3553630.19001.1630202961.574.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00002_1.2.840.113619.2.312.6945.3553630.19001.1630202961.583.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00002_1.2.840.113619.2.312.6945.3553630.19001.1630202961.583.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00003_1.2.840.113619.2.312.6945.3553630.19001.1630202961.584.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00003_1.2.840.113619.2.312.6945.3553630.19001.1630202961.584.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00004_1.2.840.113619.2.312.6945.3553630.19001.1630202961.585.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00004_1.2.840.113619.2.312.6945.3553630.19001.1630202961.585.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00005_1.2.840.113619.2.312.6945.3553630.19001.1630202961.586.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00005_1.2.840.113619.2.312.6945.3553630.19001.1630202961.586.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00006_1.2.840.113619.2.312.6945.3553630.19001.1630202961.575.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00006_1.2.840.113619.2.312.6945.3553630.19001.1630202961.575.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00007_1.2.840.113619.2.312.6945.3553630.19001.1630202961.576.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00007_1.2.840.113619.2.312.6945.3553630.19001.1630202961.576.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00008_1.2.840.113619.2.312.6945.3553630.19001.1630202961.577.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00008_1.2.840.113619.2.312.6945.3553630.19001.1630202961.577.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00009_1.2.840.113619.2.312.6945.3553630.19001.1630202961.578.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00009_1.2.840.113619.2.312.6945.3553630.19001.1630202961.578.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00010_1.2.840.113619.2.312.6945.3553630.19001.1630202961.579.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00010_1.2.840.113619.2.312.6945.3553630.19001.1630202961.579.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00011_1.2.840.113619.2.312.6945.3553630.19001.1630202961.580.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00011_1.2.840.113619.2.312.6945.3553630.19001.1630202961.580.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00012_1.2.840.113619.2.312.6945.3553630.19001.1630202961.581.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00012_1.2.840.113619.2.312.6945.3553630.19001.1630202961.581.jpg"
+    },
+    {
+      "file": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\77\\00013_1.2.840.113619.2.312.6945.3553630.19001.1630202961.582.jpg",
+      "duplicate_of": "C:\\Users\\Manoj Grandhi\\Desktop\\mtech\\cervical_spine_full_project\\data\\19\\00013_1.2.840.113619.2.312.6945.3553630.19001.1630202961.582.jpg"
+    }
+  ]
+}

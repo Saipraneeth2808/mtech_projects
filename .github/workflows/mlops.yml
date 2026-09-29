@@ -1,0 +1,106 @@
+name: Cervical Spine MRI - Full MLOps
+
+on:
+
+  workflow_dispatch:
+
+  push:
+    branches:
+      - cervical-spine-project
+
+  schedule:
+    - cron: "0 2 * * 0"
+
+jobs:
+
+  mlops:
+
+    name: Data Validation - Evaluation - Tracking
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+      # ==========================================
+      # DATA VALIDATION
+      # ==========================================
+
+      - name: Validate dataset
+        run: |
+          python mlops/data_validation.py
+
+      # ==========================================
+      # CODE VALIDATION
+      # ==========================================
+
+      - name: Validate Python code
+        run: |
+          python -m compileall \
+            detection \
+            models \
+            preprocessing \
+            utils \
+            website \
+            mlops
+
+      # ==========================================
+      # MODEL EVALUATION
+      # ==========================================
+
+      - name: Evaluate models
+        run: |
+          python mlops/evaluate.py
+
+      # ==========================================
+      # MLFLOW
+      # ==========================================
+
+      - name: Track experiments with MLflow
+        run: |
+          python mlops/mlflow_tracking.py
+
+      # ==========================================
+      # MODEL VERSIONING
+      # ==========================================
+
+      - name: Version models
+        run: |
+          python mlops/model_versioning.py
+
+      # ==========================================
+      # MODEL PROMOTION
+      # ==========================================
+
+      - name: Promote best model
+        run: |
+          python mlops/promote_model.py
+
+      # ==========================================
+      # UPLOAD REPORTS
+      # ==========================================
+
+      - name: Upload MLOps reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: cervical-spine-mlops-reports
+          path: |
+            mlops/evaluation_report.json
+            mlops/model_registry.json
+            mlops/monitoring/data_validation_report.json
+            mlops/model_versions/

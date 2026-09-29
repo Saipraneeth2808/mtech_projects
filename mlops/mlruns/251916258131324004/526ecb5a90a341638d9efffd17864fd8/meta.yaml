@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Manoj Grandhi/Desktop/mtech/cervical_spine_full_project/mlops/mlruns/251916258131324004/526ecb5a90a341638d9efffd17864fd8/artifacts
+end_time: 1788413083501
+entry_point_name: ''
+experiment_id: '251916258131324004'
+lifecycle_stage: active
+run_id: 526ecb5a90a341638d9efffd17864fd8
+run_name: ensemble-evaluation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1788413083307
+status: 3
+tags: []
+user_id: Manoj Grandhi

@@ -1,0 +1,9 @@
+{
+  "version": "v2",
+  "created": "2026-09-02T11:50:47.583224",
+  "models": [
+    "cnn.h5",
+    "vgg.pkl",
+    "ensemble.pkl"
+  ]
+}

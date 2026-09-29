@@ -1,0 +1,10 @@
+flask
+numpy
+opencv-python-headless
+tensorflow
+scikit-learn
+joblib
+matplotlib
+pillow
+mlflow
+reportlab
